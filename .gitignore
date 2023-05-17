@@ -1,0 +1,7 @@
+config.ini
+target_folder/*
+
+.idea/*
+
+libs/__pycache__/*
+*/__init__.py/__pycache__/*
