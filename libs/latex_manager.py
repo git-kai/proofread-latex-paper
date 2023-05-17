@@ -1,6 +1,6 @@
-# Define functions
 
-# define constants to replace some words in the GPT model's output
+
+# Define constants to replace some words in the GPT model's output
 LATEX_FORMAT_REPLACEMENTS = [
     (' "', ' ``'),
     ('"', "'' "),
@@ -14,17 +14,17 @@ LATEX_FORMAT_REPLACEMENTS = [
     ('—', '--')
 ]
 
-# define constants to remove commands that GPT model add without permission
+# Define constants to remove commands that GPT model add without permission
 DO_NOT_ADD_COMMAND = [
     '\\end{document}'
 ]
 
-# define constants to detect empty lines
+# Define constants to detect empty lines
 EMPTY_LINE = ''
 VARIOUS_EMPTY_LINE_LIST = ['', ' ', '%', '% ', '\n', '\t', '\r\n']
 
 
-# get the preamble and body and references separately from the text
+# Get the preamble and body and references separately from the text
 def get_tex_preamble_body_references(in_text):
     this_preamble = ''
     this_body = ''
@@ -48,7 +48,7 @@ def get_tex_preamble_body_references(in_text):
     return {'preamble': this_preamble, 'body': this_body, 'references': this_references}
 
 
-# get groups of input texts in the json from
+# Get groups of input texts in the json from
 def get_input_text_groups(in_text, in_max_letters):
     results_groups = []
     this_group = []
@@ -89,14 +89,14 @@ def get_input_text_groups(in_text, in_max_letters):
     return results_groups
 
 
-# append a new group to the list of all groups
+# Append a new group to the list of all groups
 def _get_all_groups_appended_new_group(in_all_groups, in_new_group, is_target=True):
     if _is_meaningful_group(in_new_group):
         in_all_groups.append({'data': "\n".join(in_new_group), 'is_target': is_target})
     return in_all_groups
 
 
-# check if the group is meaningful
+# Check if the group is meaningful
 def _is_meaningful_group(in_group):
     for line in in_group:
         if line not in VARIOUS_EMPTY_LINE_LIST:
@@ -104,14 +104,14 @@ def _is_meaningful_group(in_group):
     return False
 
 
-# get the text formatted by the LATEX_FORMAT_REPLACEMENTS
+# Get the text formatted by the LATEX_FORMAT_REPLACEMENTS
 def get_formatted_text(in_text):
     for old, new in LATEX_FORMAT_REPLACEMENTS:
         in_text = in_text.replace(old, new)
     return in_text
 
 
-# get the text without the commands that GPT model add without permission defined in DO_NOT_ADD_COMMAND
+# Get the text without the commands that GPT model add without permission defined in DO_NOT_ADD_COMMAND
 def get_do_not_add_command_removed_text(in_original_text, in_revised_text):
     for this_command in DO_NOT_ADD_COMMAND:
         if in_original_text.find(this_command) == -1:

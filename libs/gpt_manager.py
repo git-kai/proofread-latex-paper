@@ -51,7 +51,7 @@ The text you need to revise is given below:
 '''
 
 
-# get all the revised texts
+# Get all the revised texts
 def get_revised_text(in_text, in_i_start=0):
     n_times = _get_n_calculation_times(in_text)
     n_text_length = _get_n_text_length(in_text)
@@ -80,18 +80,19 @@ def get_revised_text(in_text, in_i_start=0):
     return True, this_result_text
 
 
-# get one revised text
+# Get one revised text
 def _print_input_text(in_text):
     print('% > The next input text is:')
     for this_line in in_text.split('\n'):
         print('%%', this_line)
 
 
-# get the number of calculation times
+# Get the number of text length
 def _get_n_text_length(in_text):
     return len(in_text)
 
 
+# Get the number of necessary calculation times
 def _get_n_calculation_times(in_text):
     if in_text == EMPTY_TEXT:
         return 0
@@ -100,6 +101,7 @@ def _get_n_calculation_times(in_text):
         return int((this_sample_token_length * SAFETY_FACTOR) / (MAX_INPUT_TOKENS - _get_token_length(PROMPT_TEXT))) + 1
 
 
+# Get approximate token length of the input text
 def _get_token_length(in_text):
     enc = tiktoken.encoding_for_model(GPT_MODEL)
     tokens = enc.encode(in_text)
@@ -113,7 +115,7 @@ def completion_with_backoff(**kwargs):
     return openai.ChatCompletion.create(**kwargs)
 
 
-# Define functions for the GPT model
+# Define functions for the GPT model request
 def _get_one_revised_text(in_text):
     response = completion_with_backoff(
         model=GPT_MODEL,
