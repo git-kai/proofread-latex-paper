@@ -1,7 +1,7 @@
 # Proofread-LaTeX-Paper
 
-This repository provides a tool for proofreading academic papers in LaTeX format using LLM.
-The entire text is proofread by dividing the text by a certain length and repeatedly requesting the GPT model.
+This repository provides a tool for proofreading academic papers in LaTeX format using GPT model.
+The entire text is proofread by dividing the text by a certain length and repeatedly requesting to the model.
 
 ## Basic
 
