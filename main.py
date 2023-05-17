@@ -1,5 +1,5 @@
 ####################
-# import libraries #
+# Import libraries #
 ####################
 import configparser
 from libs.gpt_manager import get_revised_text
@@ -8,7 +8,7 @@ from libs.latex_manager import get_tex_preamble_body_references
 
 
 ##################
-# set parameters #
+# Set parameters #
 ##################
 config_ini = configparser.ConfigParser()
 config_ini.read('config.ini', encoding='utf-8')
