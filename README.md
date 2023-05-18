@@ -48,7 +48,7 @@ The revised file is saved within the same directory as the original file. The ou
 ## Advanced
 
 ### _Customizing the GPT Model Settings_
-If you wish to customize the GPT model's settings, such as the Prompt Text, you can do so by modifying the respective values in the `proofread-latex-paper/calc_libs/gpt_manager.py` file.
+If you wish to customize the GPT model's settings, such as the Prompt Text, you can do so by modifying the respective values in the `proofread-latex-paper/libs/gpt_manager.py` file.
 
 ### _Visualizing the differences_
 
